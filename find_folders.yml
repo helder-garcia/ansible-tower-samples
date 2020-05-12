@@ -1,5 +1,9 @@
-- name: Find directories
-  find:
-    paths: /
-    recurse: no
-    file_type: directory
+---
+- hosts: all
+
+  tasks:
+  - name: find folders.
+    find:
+      paths: /
+      recurse: no
+      file_type: directory
