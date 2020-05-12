@@ -1,0 +1,6 @@
+- name: Find /var/log all directories, exclude nginx and mysql
+  hosts: all
+  find:
+    paths: /
+    recurse: no
+    file_type: directory
