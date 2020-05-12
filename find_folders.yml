@@ -8,7 +8,7 @@
     become: true
     find:
       paths: /
-      recurse: no
+      depth: 2
       file_type: directory
       excludes: 'tmp'
     register: output
