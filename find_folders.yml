@@ -2,7 +2,7 @@
 - name: Get folders
   hosts: client-01
   vars:
-    Files: []
+    Folders: []
   tasks:
   - name: find folders.
     become: true
@@ -16,7 +16,7 @@
   - name: Add files to the list
     no_log: true
     set_fact:
-      Files: "{{ Files + [item.path]}}"
+      Files: "{{ Folders + [item.path]}}"
     with_items: "{{ output.files }}"
 
-  - debug: var=Files
+  - debug: var=Folders
