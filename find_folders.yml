@@ -1,5 +1,5 @@
 ---
-- hosts: all
+- hosts: client-01
 
   tasks:
   - name: find folders.
@@ -7,3 +7,6 @@
       paths: /
       recurse: no
       file_type: directory
+    register: output
+  - debug: var=item.path
+    with_items: "{{ output.files }}"
