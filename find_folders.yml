@@ -16,7 +16,7 @@
   - name: Add files to the list
     no_log: true
     set_fact:
-      Files: "{{ Folders + [item.path]}}"
+      Folders: "{{ Folders + [item.path]}}"
     with_items: "{{ output.files }}"
 
   - debug: var=Folders
