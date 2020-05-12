@@ -1,12 +1,22 @@
 ---
-- hosts: client-01
-
+- name: Get folders
+  hosts: client-01
+  vars:
+    Files: []
   tasks:
   - name: find folders.
+    become: true
     find:
       paths: /
       recurse: no
       file_type: directory
+      excludes: 'tmp'
     register: output
-  - debug: var=item.path
+
+  - name: Add files to the list
+    no_log: true
+    set_fact:
+      Files: "{{ Files + [item.path]}}"
     with_items: "{{ output.files }}"
+
+  - debug: var=Files
