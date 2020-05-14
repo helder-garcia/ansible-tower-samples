@@ -11,7 +11,7 @@
       depth: 3
       recurse: yes
       file_type: directory
-      excludes: "^proc.*"
+      excludes: "proc*,tmp"
       use_regex: yes
     register: output
 
