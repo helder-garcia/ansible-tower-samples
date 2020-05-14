@@ -11,7 +11,7 @@
       depth: 3
       recurse: yes
       file_type: directory
-      excludes: "proc*,tmp"
+      excludes: "proc,tmp"
     register: output
 
   - name: Add files to the list
