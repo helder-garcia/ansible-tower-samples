@@ -9,6 +9,7 @@
     find:
       paths: /
       depth: 3
+      recurse: yes
       file_type: directory
     register: output
 
