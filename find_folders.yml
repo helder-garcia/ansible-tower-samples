@@ -12,7 +12,6 @@
       recurse: yes
       file_type: directory
       excludes: "proc*,tmp"
-      use_regex: yes
     register: output
 
   - name: Add files to the list
