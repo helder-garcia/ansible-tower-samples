@@ -8,9 +8,8 @@
     become: true
     find:
       paths: /
-      depth: 2
+      depth: 3
       file_type: directory
-      excludes: 'tmp'
     register: output
 
   - name: Add files to the list
