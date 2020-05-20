@@ -16,8 +16,9 @@
       follow: no
       hidden: yes
       recurse: "{{recursivo}}"
-    become: yes
+    become: true
     register: find_pastas
+    debug: var=find_pastas
 
   - name: lista_dir.yml | Inicializa lista de pastas, excluidas e final
     set_fact:
@@ -36,4 +37,4 @@
     with_items: "{{ find_pastas.files }}"
     no_log: true
 
-  -  debug: var=pastas
+  - debug: var=pastas
