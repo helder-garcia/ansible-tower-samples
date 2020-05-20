@@ -1,0 +1,44 @@
+---
+- hosts: "{{maquinas}}"
+  gather_facts: no
+
+  tasks:
+  - name: lista | Checar se falta definição de variaveis dir_inicial e profundidade
+    fail:
+      msg: erro
+    when: dir_inicial is undefined or profundidade is undefined
+
+  - name: lista_dir.yml | Listar diretorios
+    find:
+      depth: "{{profundidade}}"
+      path: "{{dir_inicial}}"
+      file_type: directory
+      follow: no
+      hidden: yes
+      recurse: "{{recursivo}}"
+    become: yes
+    register: find_pastas
+
+  - name: lista_dir.yml | Inicializa lista de pastas, excluidas e final
+    set_fact:
+      pastas: []
+
+  - name: lista_dir.yml | Montando lista de excecoes
+    set_fact:
+      pastatmp: "/tmp/"
+      pastaproc: "/proc/"
+      pastarun: "/run/"
+
+  - name: lista_dir.yml | Monta lista de diretorios
+    set_fact:
+      pastas: "{{ pastas + [ item.path ] }}"
+    when: (pastatmp not in item.path) and (pastaproc not in item.path) and (pastarun not in item.path)
+    with_items: "{{ find_pastas.files }}"
+    no_log: true
+
+  - name: lista_dir.yml | Saida lista diretorios
+    debug:
+      msg:
+      - "@_INICIO"
+      - "{{pastas}}"
+      - "@_FIM"
