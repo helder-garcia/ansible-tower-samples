@@ -6,16 +6,16 @@
   - name: lista | Checar se falta definição de variaveis dir_inicial e profundidade
     fail:
       msg: erro
-    when: dir_inicial is undefined
+    when: dir_inicial is undefined or profundidade is undefined
 
   - name: lista_dir.yml | Listar diretorios
     find:
+      depth: "{{profundidade}}"
       path: "{{dir_inicial}}"
       file_type: directory
       follow: no
       hidden: yes
-      recurse: "{{recursivo}}"
-    become: true
+    become: yes
     register: find_pastas
 
   - name: lista_dir.yml | Inicializa lista de pastas, excluidas e final
