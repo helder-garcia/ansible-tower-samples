@@ -18,7 +18,6 @@
       recurse: "{{recursivo}}"
     become: true
     register: find_pastas
-    debug: var=find_pastas
 
   - name: lista_dir.yml | Inicializa lista de pastas, excluidas e final
     set_fact:
