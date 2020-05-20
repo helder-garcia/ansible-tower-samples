@@ -36,9 +36,4 @@
     with_items: "{{ find_pastas.files }}"
     no_log: true
 
-  - name: lista_dir.yml | Saida lista diretorios
-    debug:
-      msg:
-      - "@_INICIO"
-      - "{{pastas}}"
-      - "@_FIM"
+  -  debug: var=pastas
