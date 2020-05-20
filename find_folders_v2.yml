@@ -25,9 +25,9 @@
 
   - name: lista_dir.yml | Montando lista de excecoes
     set_fact:
-      pastatmp: "/tmp/"
-      pastaproc: "/proc/"
-      pastarun: "/run/"
+      pastatmp: "/tmp"
+      pastaproc: "/proc"
+      pastarun: "/run"
 
   - name: lista_dir.yml | Monta lista de diretorios
     set_fact:
