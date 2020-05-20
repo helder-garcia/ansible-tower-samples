@@ -15,7 +15,6 @@
       file_type: directory
       follow: no
       hidden: yes
-      recurse: no
     become: yes
     register: find_pastas
 
