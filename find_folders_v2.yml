@@ -10,7 +10,6 @@
 
   - name: lista_dir.yml | Listar diretorios
     find:
-      depth: "{{profundidade}}"
       path: "{{dir_inicial}}"
       file_type: directory
       follow: no
