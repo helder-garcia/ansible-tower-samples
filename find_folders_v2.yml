@@ -8,13 +8,11 @@
       msg: erro
     when: dir_inicial is undefined or profundidade is undefined
 
-  - name: lista_dir.yml | profundidade minima de 2 - debug
-
   - name: lista_dir.yml | Listar diretorios
     find:
       depth: "{{profundidade}}"
       path: "{{dir_inicial}}"
-      file_type: directory
+      file_type: {{tipo}}
       follow: no
       hidden: yes
       recurse: true
