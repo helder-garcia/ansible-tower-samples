@@ -12,7 +12,7 @@
     find:
       depth: "{{profundidade}}"
       path: "{{dir_inicial}}"
-      file_type: {{tipo}}
+      file_type: "{{tipo}}"
       follow: no
       hidden: yes
       recurse: true
