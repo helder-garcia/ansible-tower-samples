@@ -8,9 +8,9 @@
     become: true
     find:
       paths: /
-      depth: 3
+      depth: 1
       recurse: yes
-      file_type: directory
+      file_type: any
       excludes: "*proc*,*tmp*"
     register: output
 
