@@ -1,0 +1,11 @@
+---
+- hosts: "{{maquinas}}"
+  gather_facts: no
+
+  tasks:
+  - name: check reachability | Try connection  on host and port. For now must be used IP not hostname
+    check_connection:
+      host: "192.168.48.3"
+      port: 22
+    no_log: false
+    register: find_pastas
