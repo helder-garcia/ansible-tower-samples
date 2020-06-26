@@ -8,3 +8,8 @@
       host: "{{host}}"
       port: "{{portn}}"
     no_log: false
+  - name: Saida
+    debug:
+      msg:
+      - "===== check connection ====="
+      - "{{result.status}}"
