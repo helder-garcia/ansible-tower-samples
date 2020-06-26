@@ -6,7 +6,7 @@
   - name: check reachability | Try connection  on host and port. For now must be used IP not hostname
     check_connection:
       host: "{{host}}"
-      port: "{{portn}}"
+      port: "{{portnum}}"
     no_log: true
     register: resultado
   - name: Saida
