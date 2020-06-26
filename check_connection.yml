@@ -3,7 +3,7 @@
   gather_facts: no
 
   tasks:
-  - name: check reachability | Try connection  on host and port. For now must be used IP not hostname
+  - name: check reachability | Try connection on host and port.
     check_connection:
       host: "{{host}}"
       port: "{{portnum}}"
