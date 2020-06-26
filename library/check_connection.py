@@ -14,37 +14,34 @@ ANSIBLE_METADATA = {'metadata_version': '1.1',
 DOCUMENTATION = '''
 ---
 module: check_connection
-short_description: This is a sentence describing the module
+short_description: Check reachability of a host/port pair. Think it like the old telnet test.
 description:
-    - Longer description of the module.
-    - You might include instructions.
+    - Check if a network port is opened or closed on a remote computer.
+    - Automates the popular and manual test using telnet utility.
+    - No, it doesn't use telnet. It just tries to open a connection.
 version_added: "2.9"
 author: "Helder Garcia (@helder-garcia)"
 options:
-    option_name:
+    host:
         description:
-            - Description of the options goes here.
-            - Must be written in sentences.
-        required: true or false
-        default: a string or the word null
-        choices:
-          - enable
-          - disable
-        aliases:
-          - repo_name
-        version_added: "1.X"
+            - Target host IP or hostname where to check the TCP/IP reachability.
+        required: true
+        type: str
+    port:
+        description:
+            - Target port where to check the TCP/IP reachability.
+        required: true
+        type: int
+notes:
+    - check_mode is not supported.
+    - Do not use '{{ port }}' as a variable name on your playbook, as it is a reserved name. Please, see the example. 
 '''
 
 EXAMPLES = '''
-# Test we can logon to 'webservers' and execute python with json lib.
-# ansible webservers -m ping
-
-# Example from an Ansible Playbook
-- ping:
-
-# Induce an exception to see what happens
-- ping:
-    data: crash
+- name: check reachability | Try connection on host and port.
+  check_connection:
+    host: '{{ host }}'
+    port: '{{ portnum }}'
 '''
 
 RETURN = '''
