@@ -74,9 +74,9 @@ def main():
     rc = clientsocket.connect_ex((params['host'], params['port']))
 
     if rc == 0:
-        result['status'] = true
+        result['status'] = True
     else:
-        result['status'] = false
+        result['status'] = False
 
     clientsocket.close()
 
