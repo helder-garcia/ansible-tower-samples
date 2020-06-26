@@ -6,5 +6,5 @@
   - name: check reachability | Try connection  on host and port. For now must be used IP not hostname
     check_connection:
       host: "{{host}}"
-      port: "{{port}}"
+      port: "{{portn}}"
     no_log: false
