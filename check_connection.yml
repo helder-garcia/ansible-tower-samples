@@ -5,6 +5,6 @@
   tasks:
   - name: check reachability | Try connection  on host and port. For now must be used IP not hostname
     check_connection:
-      host: "192.168.48.3"
-      port: 22
+      host: "{{host}}"
+      port: "{{port}}"
     no_log: false
