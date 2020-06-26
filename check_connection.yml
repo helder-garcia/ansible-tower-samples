@@ -1,15 +1,15 @@
 ---
-- hosts: "{{maquinas}}"
+- hosts: '{{ maquinas }}'
   gather_facts: no
 
   tasks:
   - name: check reachability | Try connection on host and port.
     check_connection:
-      host: "{{host}}"
-      port: "{{portnum}}"
+      host: '{{ host }}'
+      port: '{{ portnum }}'
     no_log: true
     register: resultado
   - name: Saida
     debug:
       msg:
-      - "{{host}} reachability on port {{portnum}}: {{resultado.status}}"
+      - "{{ host }} reachability on port {{ portnum }}: {{ resultado.status }}"
