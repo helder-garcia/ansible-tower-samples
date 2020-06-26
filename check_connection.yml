@@ -12,5 +12,4 @@
   - name: Saida
     debug:
       msg:
-      - "===== check connection ====="
-      - "{{resultado.status}}"
+      - "{{host}} reachability on port {{portnum}}: {{resultado.status}}"
