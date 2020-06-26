@@ -7,10 +7,10 @@
     check_connection:
       host: "{{host}}"
       port: "{{portn}}"
-    no_log: false
+    no_log: true
     register: resultado
   - name: Saida
     debug:
       msg:
       - "===== check connection ====="
-      - "{{resultado}}"
+      - "{{resultado.status}}"
